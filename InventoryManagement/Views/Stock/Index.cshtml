@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Stock>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<html>
+
+    <h1>Stock List</h1>
+
+
+    <h6> <a asp-controller="Stock" asp-action="Insert">Insert New Stock</a> </h6>
+
+    <head>
+            <style>
+                    table {
+                        border-collapse: collapse;
+                        width: 100%;
+                    }
+                    th, td {
+                        padding: 8px;
+                        text-align: left;
+                        border-bottom: 1px solid #DDD;
+                    }
+                    tr:hover {background-color: #D6EEEE;}
+            </style>
+    </head>
+<body>
+        <table style="width:500px;">
+            <tr>
+                <th style="width:100px;"> Category Name </th>
+                <th style="width:100px;"> Item Name </th>
+                <th style="width:100px;"> Qty </th>
+                <th style="width:100px;"> Price </th>
+                <td></td>
+            </tr>
+            @foreach (var stock in Model)
+            {
+                 <tr>
+                    <td style="width:200px;">@stock.Category </td>
+                    <td style="width:200px;">@stock.Item </td>
+                    <td style="width:200px;">@stock.Qty </td>
+                    <td style="width:200px;">@stock.Price </td>
+                    <td>
+                        <a asp-controller="Stock" asp-action="Insert" asp-route-id="@stock.Id">Insert</a>
+                        <a asp-controller="Stock" asp-action="Update" asp-route-id="@stock.Id">Update</a>
+                        <a asp-controller="Stock" asp-action="Delete" asp-route-id="@stock.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </table>
+</body>
+</html>

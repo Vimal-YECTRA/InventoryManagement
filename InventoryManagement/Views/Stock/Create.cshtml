@@ -1,0 +1,55 @@
+﻿@model Stock
+
+<form method="post" asp-action="Create">
+    <table>
+        <tr>
+           <td>
+            <label asp-for="Category"></label>
+           </td>
+           <td>
+            <input asp-for="Category" class="form-control"/>
+            <span asp-validation-for="Category" class=text-danger></span>
+           </td>
+        </tr>
+        <tr>
+           <td>
+            <label asp-for="Item"></label>
+           </td>
+           <td>
+            <input asp-for="Item" class="form-control"/>
+            <span asp-validation-for="Item" class=text-danger></span>
+           </td>
+        </tr>
+        <tr>
+           <td>
+            <label asp-for="Qty"></label>
+           </td>
+           <td>
+            <input asp-for="Qty" class="form-control"/>
+            <span asp-validation-for="Qty" class=text-danger></span>
+           </td>
+        </tr>
+        <tr>
+           <td>
+            <label asp-for="Price"></label>
+           </td>
+           <td>
+            <input asp-for="Price" class="form-control"/>
+            <span asp-validation-for="Price" class=text-danger></span>
+           </td>
+        </tr>
+
+        <tr>
+            <td>
+                <button type ="submit">Update</button>
+                <a asp-controller="Stock" asp-action="Index">Back to list</a>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <div asp-validation-summary="All"></div>
+            </td>
+        </tr>
+    </table>
+</form>
